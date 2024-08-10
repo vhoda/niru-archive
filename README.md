@@ -7,6 +7,7 @@ This particular repository is a listener for the files already mentioned, where 
 - [ ] Unzip the code base
 - [ ] Upload your videos or audio files to */content*
 - [ ] Modify the names at *nav.php*, *b.php* and *index.php*
+- [ ] Change or delete the */img* folder for the nav
 - [ ] Enjoy
 
 *If u have any problems or u have a solution in particular problem, please sent me a pull request.*
