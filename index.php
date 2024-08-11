@@ -42,6 +42,9 @@
                             $file_url = "content/" . urlencode($file);
                             $file_mod_time = date("d-m-Y H:i:s", $file_data['mod_time']);
 
+                            // Calculate if the file is "New"
+                            $is_new = (time() - $file_data['mod_time']) <= 7 * 24 * 60 * 60;
+
                             echo '<div class="cardd col-12 mb-2 d-flex align-items-center">';
                             if ($file_extension === 'mp4') {
                                 echo '<div class="col-2 text-center"><i class="fas fa-file-video fa-2x"></i></div>';
@@ -52,6 +55,10 @@
                             }
                             echo '<div class="col-8">';
                             echo '<span class="text-wrap">' . htmlspecialchars($file) . '</span>';
+                            // Add "New" badge
+                            if ($is_new) {
+                                echo ' <span class="badge text-bg-secondary p-1 ms-1">New</span>';
+                            }
                             echo '<div class="text-muted" style="font-size: 0.9em;">' . $file_mod_time . '</div>';
                             echo '</div>';
                             // desktop buttons
@@ -68,25 +75,26 @@
                         }
                     } else {
                         echo '<div class="col-12 text-center text-danger mt-4">
-                        <i class="fas fa-exclamation-triangle fa-3x"></i>
-                        <p class="mt-2">The directory is empty.</p>
-                      </div>';
+                    <i class="fas fa-exclamation-triangle fa-3x"></i>
+                    <p class="mt-2">The directory is empty.</p>
+                  </div>';
                     }
                 } else {
                     echo '<div class="col-12 text-center text-danger mt-4">
-                    <i class="fas fa-exclamation-triangle fa-3x"></i>
-                    <p class="mt-2">Error to open this <strong>' . htmlspecialchars($dir) . '</strong>.</p>
-                  </div>';
+                <i class="fas fa-exclamation-triangle fa-3x"></i>
+                <p class="mt-2">Error to open this <strong>' . htmlspecialchars($dir) . '</strong>.</p>
+              </div>';
                 }
             } else {
                 echo '<div class="col-12 text-center text-danger mt-4">
-                <i class="fas fa-exclamation-triangle fa-3x"></i>
-                <p class="mt-2">The directory <strong>' . htmlspecialchars($dir) . '</strong> doesnt exists.</p>
-              </div>';
+            <i class="fas fa-exclamation-triangle fa-3x"></i>
+            <p class="mt-2">The directory <strong>' . htmlspecialchars($dir) . '</strong> doesnt exists.</p>
+          </div>';
             }
             ?>
         </div>
     </div>
+
 
     <!-- Modal player -->
     <div class="modal fade" id="modalPlayer" tabindex="-1" aria-labelledby="modalPlayerLabel" aria-hidden="true">
