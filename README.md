@@ -1,4 +1,4 @@
-<h4>Niru Archive</h4>
+<h2>Niru Archive</h2>
 <p>This repository is for only if u have mp3, mp4, wav or webm.
 This particular repository is a listener for the files already mentioned, where it is easy to implement and or modify in your own way. </p>
 
